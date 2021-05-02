@@ -41,7 +41,7 @@ That's it Restart your `yarn dev` and components should now be found ✨
 [npm-version-href]: https://npmjs.com/package/nuxt-storm
 
 [npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-storm.svg
-[npm-downloads-href]: https://npmjs.com/package/nust-storm
+[npm-downloads-href]: https://npmjs.com/package/nuxt-storm
 
 [license-src]: https://img.shields.io/npm/l/nuxt-storm.svg
 [license-href]: https://npmjs.com/package/nuxt-storm
