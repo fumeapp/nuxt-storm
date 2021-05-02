@@ -11,6 +11,31 @@
 > [PHPStorm](https://jetbrains.com/phpstorm/) module for [NuxtJS](https://nuxtjs.org) that assists with using [@nuxt/components](https://github.com/nuxt/components) 
 
 
+## Quick Setup
+
+1. Add `nuxt-storm` to your project as a development dependency
+
+```bash
+# Using yarn
+yarn add --dev nuxt-storm
+# Using npm
+npm install --save-dev nuxt-storm
+```
+
+2. Add 'nuxt-storm' to the `buildModules` section of `nuxt.config.js`
+
+```js
+{
+  buildModules: [
+    'nuxt-storm',
+  ]
+}
+```
+
+ℹ️ If you are using `nuxt < 2.9.0`, use `modules` property instead.
+
+That's it Restart your `yarn dev` and components should now be found ✨
+
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/nuxt-storm/latest.svg
 [npm-version-href]: https://npmjs.com/package/nuxt-storm
