@@ -22,7 +22,9 @@ yarn add --dev nuxt-storm
 npm install --save-dev nuxt-storm
 ```
 
-2. Add 'nuxt-storm' to the `buildModules` section of `nuxt.config.js`
+2. Add `.components.gen.js` to your `.gitignore` file
+   
+3. Add 'nuxt-storm' to the `buildModules` section of `nuxt.config.js`
 
 ```js
 {
@@ -34,7 +36,7 @@ npm install --save-dev nuxt-storm
 
 ℹ️ If you are using `nuxt < 2.9.0`, use `modules` property instead.
 
-That's it Restart your `yarn dev` and components should now be found ✨
+That's it! Restart your `yarn dev` and components should now be found ✨
 
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/nuxt-storm/latest.svg
