@@ -1,3 +1,3 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/fumeapp/nuxt-storm/nuxt-storm.png" />
+  <img src="https://github.com/fumeapp/nuxt-storm/blob/master/nuxt-storm.png?raw=true" />
 </p>
