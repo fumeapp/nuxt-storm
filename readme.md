@@ -5,8 +5,8 @@
 # nuxt-storm
 
 [![npm version][npm-version-src]][npm-version-href]
-<!-- [![npm downloads][npm-downloads-src]][npm-downloads-href] -->
 [![License][license-src]][license-href]
+<!-- [![npm downloads][npm-downloads-src]][npm-downloads-href] -->
 
 > [PHPStorm](https://jetbrains.com/phpstorm/) module for [NuxtJS](https://nuxtjs.org) that assists with using [@nuxt/components](https://github.com/nuxt/components) 
 
