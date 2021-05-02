@@ -1,6 +1,6 @@
 <p align="center">
-  <img src="https://github.com/fumeapp/nuxt-storm/blob/master/nuxt-phpstorm.png?raw=true" />
   <img src="https://github.com/fumeapp/nuxt-storm/blob/master/nuxt-webstorm.png?raw=true" />
+  <img src="https://github.com/fumeapp/nuxt-storm/blob/master/nuxt-phpstorm.png?raw=true" />
 </p>
 
 # nuxt-storm
