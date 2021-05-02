@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="https://github.com/fumeapp/nuxt-storm/blob/master/nuxt-storm.png?raw=true" />
+  <img src="https://github.com/fumeapp/nuxt-storm/blob/master/nuxt-phpstorm.png?raw=true" />
+  <img src="https://github.com/fumeapp/nuxt-storm/blob/master/nuxt-webstorm.png?raw=true" />
 </p>
 
 # nuxt-storm
@@ -8,7 +9,7 @@
 [![License][license-src]][license-href]
 <!-- [![npm downloads][npm-downloads-src]][npm-downloads-href] -->
 
-> [PHPStorm](https://jetbrains.com/phpstorm/) module for [NuxtJS](https://nuxtjs.org) that assists with using [@nuxt/components](https://github.com/nuxt/components) 
+>[WebStorm](https://jetbrains.com/webstorm/) and [PHPStorm](https://jetbrains.com/phpstorm/) module for [NuxtJS](https://nuxtjs.org) that assists with using [@nuxt/components](https://github.com/nuxt/components) 
 
 
 ## Quick Setup
