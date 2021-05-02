@@ -13,8 +13,7 @@
     "baseUrl": ".",
     "outDir": "dist",
     "types": [
-      "@types/node",
-      // "@nuxt/types",
+      "@types/node"
     ]
   },
   "include": [
