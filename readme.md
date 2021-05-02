@@ -9,7 +9,7 @@
 [![License][license-src]][license-href]
 <!-- [![npm downloads][npm-downloads-src]][npm-downloads-href] -->
 
->[WebStorm](https://jetbrains.com/webstorm/) and [PHPStorm](https://jetbrains.com/phpstorm/) module for [NuxtJS](https://nuxtjs.org) that assists with using [@nuxt/components](https://github.com/nuxt/components) 
+>[NuxtJS](https://nuxtjs.org) module for [WebStorm](https://jetbrains.com/webstorm/) and [PhpStorm](https://jetbrains.com/phpstorm/)  that assists with using [@nuxt/components](https://github.com/nuxt/components) 
 
 
 ## Quick Setup
