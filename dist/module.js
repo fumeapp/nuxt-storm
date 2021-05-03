@@ -9,11 +9,20 @@ export default function stormModule(moduleOptions) {
     let count = 0;
     const logger = consola.withScope('nuxt:storm');
     const components = glob.sync(`${nuxt.options.srcDir}/components/**/*.vue`).map(file => {
-        const name = file.match(/(\w*)\.vue$/)[1];
+        let name;
+        if (moduleOptions.nested) {
+            name = file.match(/components\/(.*?).vue$/)[1].replace(/\//g, '');
+        }
+        else {
+            name = file.match(/(\w*)\.vue$/)[1];
+        }
         count++;
         return { name, file };
     });
     const getComponents = () => components;
+    if (moduleOptions.nested) {
+        logger.info(`Nested components option detected`);
+    }
     logger.info(`${count} components compiled for PHPStorm`);
     this.addTemplate({
         src: resolve(__dirname, '../templates', 'components.js'),

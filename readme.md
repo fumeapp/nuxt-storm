@@ -39,6 +39,35 @@ npm install --save-dev nuxt-storm
 
 That's it! Restart your `yarn dev` and components should now be found ✨
 
+### Nested Components Support
+
+Add `nested: true` in your buildModule inclusion
+
+
+```js
+{
+  buildModules: [
+    ['nuxt-storm', { nested: true }],
+  ]
+}
+```
+
+If you have components in nested directories:
+
+```bash
+| components/
+---| my/
+------| form/
+---------| TextArea.vue
+```
+
+The component name will contain its path:
+
+```html
+<MyFormTextArea />
+```
+
+
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/nuxt-storm/latest.svg
 [npm-version-href]: https://npmjs.com/package/nuxt-storm
