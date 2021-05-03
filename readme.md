@@ -67,6 +67,7 @@ The component name will contain its path:
 <MyFormTextArea />
 ```
 
+### 🙏 Thanks
 
 This was made possible by with the help of [grunghi](https://github.com/grunghi) and [eggsy](https://github.com/eggsy/)
 
