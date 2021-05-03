@@ -56,8 +56,8 @@ If you have components in nested directories:
 
 ```bash
 | components/
----| my/
-------| form/
+---| My/
+------| Form/
 ---------| TextArea.vue
 ```
 
