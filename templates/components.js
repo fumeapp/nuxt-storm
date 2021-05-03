@@ -1,3 +1,4 @@
+import Vue from 'vue'
 <%= options.getComponents().map(({ name, file }) => {
     return `import ${name} from '${file}'`
 }).join('\n') %>

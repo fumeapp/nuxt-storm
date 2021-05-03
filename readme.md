@@ -68,6 +68,9 @@ The component name will contain its path:
 ```
 
 
+This was made possible by with the help of [grunghi](https://github.com/grunghi) and [eggsy](https://github.com/eggsy/)
+
+
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/nuxt-storm/latest.svg
 [npm-version-href]: https://npmjs.com/package/nuxt-storm
