@@ -18,6 +18,10 @@ export default function stormModule (moduleOptions) {
       name = file.match(/components\/(.*?).vue$/)[1].replace(/\//g, '')
     } else {
       name = file.match(/(\w*)\.vue$/)[1]
+      // If file is an index.vue file, use folder name instead
+      if (name === 'index') {
+        name = file.replace('/index.vue', '').split('/').reverse()[0]
+      }
     }
     count++
     return { name, file }
