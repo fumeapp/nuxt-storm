@@ -32,7 +32,7 @@ export default function stormModule (moduleOptions) {
   if (moduleOptions.nested) {
     logger.info(`Nested components option detected`)
   }
-  logger.info(`${count} components compiled for from nuxt-storm`)
+  logger.info(`${count} components compiled for nuxt-storm`)
 
   this.addTemplate({
     src: resolve(__dirname, '../templates', 'components.js'),
