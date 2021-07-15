@@ -1,4 +1,3 @@
-import glob from 'glob'
 import { resolve } from 'path'
 import consola from 'consola'
 
