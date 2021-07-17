@@ -12,15 +12,15 @@ export default function stormModule(moduleOptions) {
             count++;
             return { name: file.pascalName, file: file.filePath };
         });
-    });
-    const getComponents = () => components;
-    if (moduleOptions.nested) {
-        logger.info(`Nested components option detected`);
-    }
-    logger.info(`${count} components compiled for nuxt-storm`);
-    this.addTemplate({
-        src: resolve(__dirname, '../templates', 'components.js'),
-        fileName: '../.components.gen.js',
-        options: { getComponents },
+        if (moduleOptions.nested) {
+            logger.info(`Nested components option detected`);
+        }
+        logger.info(`${count} components compiled for nuxt-storm`);
+        const getComponents = () => components;
+        this.addTemplate({
+            src: resolve(__dirname, '../templates', 'components.js'),
+            fileName: '../.components.gen.js',
+            options: { getComponents },
+        });
     });
 }
