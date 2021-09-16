@@ -67,6 +67,25 @@ The component name will contain its path:
 <MyFormTextArea />
 ```
 
+### Path alias
+
+Should your IDE fail to recognize vue component by its absolute path, you can replace it with path alias (default '@').
+
+Thus, the aforementioned component path will be listed as
+`@/components/My/Form/TextArea.vue`
+instead of 
+`C:/some/absolute/path/project/components/My/Form/TextArea.vue`.
+
+Add `alias: true` in your buildModule inclusion or set a custom alias as its value should you use one.
+
+```js
+{
+  buildModules: [
+    ['nuxt-storm', { alias: true }],
+  ]
+}
+```
+
 ### 🙏 Thanks
 
 This was made possible by with the help of [grunghi](https://github.com/grunghi) and [eggsy](https://github.com/eggsy/)

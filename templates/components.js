@@ -4,5 +4,7 @@ import Vue from 'vue'
 }).join('\n') %>
 
 <%= options.getComponents().map(({ name, file }) => {
-    return `Vue.component('${name}', ${name})`
+    let template = `Vue.component('${name}', ${name})`
+    template += `\nVue.component('Lazy${name}', ${name})`
+    return template
 }).join('\n') %>

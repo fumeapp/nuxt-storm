@@ -10,7 +10,19 @@ export default function stormModule(moduleOptions) {
     this.nuxt.hook('components:extend', dirs => {
         components = [...dirs].map(file => {
             count++;
-            return { name: file.pascalName, file: file.filePath };
+            let filePath;
+            if (moduleOptions.alias) {
+                let alias;
+                if (typeof moduleOptions.alias !== 'string')
+                    alias = '@';
+                else
+                    alias = moduleOptions.alias;
+                filePath = `${alias}/${file.filePath.slice(file.filePath.indexOf('components'))}`;
+            }
+            else {
+                filePath = file.filePath;
+            }
+            return { name: file.pascalName, file: filePath };
         });
         if (moduleOptions.nested) {
             logger.info(`Nested components option detected`);
