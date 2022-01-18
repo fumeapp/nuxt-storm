@@ -10,6 +10,7 @@
     "dist",
     "templates"
   ],
+  "type": "module",
   "main": "./dist/module.js",
   "scripts": {
     "build": "tsc"
