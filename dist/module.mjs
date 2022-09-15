@@ -1,14 +1,5 @@
-import { resolve } from 'path';
-import { useLogger, defineNuxtModule, addTemplate, resolvePath } from '@nuxt/kit';
-
-// -- Unbuild CommonJS Shims --
-import __cjs_url__ from 'url';
-import __cjs_path__ from 'path';
-import __cjs_mod__ from 'module';
-const __filename = __cjs_url__.fileURLToPath(import.meta.url);
-const __dirname = __cjs_path__.dirname(__filename);
-const require = __cjs_mod__.createRequire(import.meta.url);
-
+import { useLogger, defineNuxtModule, resolvePath } from '@nuxt/kit';
+import { writeFile } from 'node:fs/promises';
 
 const name = "nuxt-storm";
 const version = "1.1.1";
@@ -49,16 +40,26 @@ const module = defineNuxtModule({
       if (moduleOptions.nested) {
         logger.info(`Nested components option detected`);
       }
-      logger.info(`${count} components compiled for nuxt-storm in ${resolve(__dirname, "../templates", "components.js")}`);
-      logger.log(components);
-      logger.log(addTemplate({
-        src: resolve(__dirname, "../templates", "components.js"),
-        fileName: await resolvePath(".components.gen.js"),
-        options: { components },
-        write: true
-      }));
+      await writeComponentsFile(components);
+      logger.info(`${count} components compiled for nuxt-storm`);
     });
   }
 });
+const writeComponentsFile = async (components) => {
+  let template = `import Vue from 'vue'
+    
+    ${components.map(({ name: name2, file }) => {
+    return `import ${name2} from '${file}'`;
+  }).join("\n")}
+    
+    `;
+  template += components.map(({ name: name2 }) => {
+    let template2 = `Vue.component('${name2}', ${name2})`;
+    template2 += `
+Vue.component('Lazy${name2}', ${name2})`;
+    return template2;
+  }).join("\n");
+  await writeFile(await resolvePath(".components.gen.js"), template);
+};
 
 export { module as default };

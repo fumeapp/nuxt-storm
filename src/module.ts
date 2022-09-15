@@ -1,6 +1,6 @@
-import {resolve} from 'path'
-import {addTemplate, defineNuxtModule, resolvePath, useLogger} from "@nuxt/kit";
+import {defineNuxtModule, resolvePath, useLogger} from "@nuxt/kit";
 import {name, version} from '../package.json'
+import {writeFile} from "node:fs/promises";
 
 interface Options {
     nested?: boolean
@@ -44,74 +44,28 @@ export default defineNuxtModule<Options>({
             if (moduleOptions.nested) {
                 logger.info(`Nested components option detected`)
             }
-            logger.info(`${count} components compiled for nuxt-storm in ${resolve(__dirname, '../templates', 'components.js')}`)
 
-            logger.log(components)
+            await writeComponentsFile(components)
 
-            logger.log(addTemplate({
-                src: resolve(__dirname, '../templates', 'components.js'),
-                fileName: await resolvePath('.components.gen.js'),
-                options: {components},
-                write: true
-            }))
+            logger.info(`${count} components compiled for nuxt-storm`)
         });
     }
 })
 
+const writeComponentsFile = async components => {
+    let template = `import Vue from 'vue'
+    
+    ${components.map(({name, file}) => {
+        return `import ${name} from '${file}'`
+    }).join('\n')}
+    
+    `;
 
+    template += components.map(({name}) => {
+        let template = `Vue.component('${name}', ${name})`
+        template += `\nVue.component('Lazy${name}', ${name})`
+        return template
+    }).join('\n')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*function stormModule(moduleOptions: Options) {
-    if (process.env.NODE_ENV === 'production') {
-        return
-    }
-    let count = 0
-
-    let components
-    this.nuxt.hook('components:extend', dirs => {
-        components = [...dirs].map(file => {
-            count++
-            let filePath
-            if (moduleOptions.alias) {
-                let alias
-                if (typeof moduleOptions.alias !== 'string') alias = '@'
-                else alias = moduleOptions.alias
-                filePath = `${alias}/${file.filePath.slice(file.filePath.indexOf('components'))}`
-            } else {
-                filePath = file.filePath
-            }
-            return {name: file.pascalName, file: filePath}
-        })
-
-        if (moduleOptions.nested) {
-            logger.info(`Nested components option detected`)
-        }
-        logger.info(`${count} components compiled for nuxt-storm`)
-
-        const getComponents = () => components
-
-        this.addTemplate({
-            src: resolve(__dirname, '../templates', 'components.js'),
-            fileName: '../.components.gen.js',
-            options: {getComponents},
-        })
-
-    });
-
+    await writeFile(await resolvePath('.components.gen.js'), template)
 }
-*/
